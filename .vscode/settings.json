@@ -1,0 +1,10 @@
+{
+  "files.associations": { "*.pyw": "python" },
+  "files.encoding": "utf8",
+  "files.eol": "\n",
+  "editor.rulers": [100],
+  "editor.foldingImportsByDefault": true,
+  "python.analysis.typeCheckingMode": "off",
+  "[python]": { "editor.tabSize": 4, "editor.insertSpaces": true },
+  "search.exclude": { "reminder_data.json": true, "*.log": true }
+}

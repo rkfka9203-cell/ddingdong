@@ -1,0 +1,10 @@
+reminder_data.json
+reminder_data.json.*
+reminder_error.log
+__pycache__/
+build/
+dist/
+*.spec
+*.bak
+*.tmp
+*.part

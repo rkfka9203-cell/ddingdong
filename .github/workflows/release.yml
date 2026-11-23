@@ -1,0 +1,42 @@
+name: Release
+
+# v* 태그를 올리면 Windows에서 exe를 빌드해 GitHub Release에 첨부한다.
+# 앱의 자동 업데이트는 이 릴리스의 Ddingdong.exe(와 GitHub가 계산한 SHA-256)를 사용한다.
+on:
+  push:
+    tags: ["v*"]
+
+permissions:
+  contents: write
+
+jobs:
+  build:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Check tag matches APP_VERSION
+        shell: pwsh
+        run: |
+          $ver = python -c "import re;print(re.search(r'APP_VERSION = \"([^\"]+)\"', open('Ddingdong.pyw', encoding='utf-8').read()).group(1))"
+          if ("v$ver" -ne "${{ github.ref_name }}") {
+            Write-Error "Tag ${{ github.ref_name }} does not match APP_VERSION v$ver"
+            exit 1
+          }
+
+      - name: Build exe
+        run: |
+          python -m pip install pyinstaller
+          python build_exe.py
+
+      - name: Publish release
+        shell: pwsh
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          gh release create "${{ github.ref_name }}" dist/Ddingdong.exe `
+            --title "${{ github.ref_name }}" --generate-notes
