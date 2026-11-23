@@ -2,6 +2,9 @@
 """
 띵동 리마인더(Ddingdong) - 단일 파일 데스크톱 리마인더 + 메모장  (v2.9.0)
 
+v2.9.1 변경점
+  - 의견 보내기가 개발자 메일로 바로 전달됨(FormSubmit), 실패하면 GitHub 이슈 화면으로 대체
+
 v2.9 변경점
   - 프로그램 이름을 '띵동 리마인더(Ddingdong)'로 변경
   - 설정 ▸ 일반 추가: 테마(밝게/어둡게/시스템), 언어(자동/한국어/English), Windows 시작 시 자동 실행(트레이),
@@ -79,7 +82,7 @@ import tkinter as tk
 from tkinter import font as tkfont
 from tkinter import messagebox, filedialog
 
-APP_VERSION = "2.9.0"
+APP_VERSION = "2.9.1"
 # 자동 업데이트에 사용할 GitHub 저장소("소유자/저장소"). 비워 두면 업데이트 기능이 꺼진다.
 GITHUB_REPO = "rkfka9203-cell/ddingdong"
 # 후원(카카오페이 송금) — 링크와 QR 이미지
@@ -98,7 +101,7 @@ DONATE_QR_B64 = (
 # 의견 보내기: FEEDBACK_EMAIL 을 채우면 FormSubmit(무료 폼→메일 중계)으로 개발자 메일에 전달하고,
 # 비워 두면 GitHub 이슈(공개) 작성 화면을 연다. 공개 저장소에 메일 주소가 노출되지 않도록
 # FormSubmit 이 발급하는 임의 별칭(alias)을 넣는 것을 권장한다.
-FEEDBACK_EMAIL = ""
+FEEDBACK_EMAIL = "rkfka9203@gmail.com"
 FEEDBACK_ENDPOINT_BASE = "https://formsubmit.co/ajax/"
 UPDATE_ASSET = "Ddingdong.exe"      # Release에 올리는 exe 파일명(빌드 결과와 동일해야 함)
 

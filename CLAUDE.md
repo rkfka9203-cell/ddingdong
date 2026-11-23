@@ -41,6 +41,6 @@ VS Code의 Claude Code가 이 프로젝트를 이어서 작업할 때 참고하�
 
 ## 후원 · 의견 · 공개 저장소 규칙
 - 저작권자는 `Ram's`(MIT). 커밋 작성자 이메일은 GitHub `noreply` 주소만 사용한다(저장소 로컬 git config).
-- `FEEDBACK_EMAIL`(개인 메일/별칭)을 사용자 허락 없이 소스에 넣지 않는다. 공개 저장소·커밋 기록에 개인 메일이 남는다.
+- `FEEDBACK_EMAIL`에는 사용자가 직접 요청해서(v2.9.1) 개발자 메일이 설정돼 있다. 다른 주소로 바꾸거나 새로 넣을 때는 공개 저장소·커밋 기록에 남는다는 점을 알리고 사용자 확인을 받는다(가능하면 FormSubmit 별칭 사용).
 - 릴리스는 `v<APP_VERSION>` 태그 푸시 → GitHub Actions(`.github/workflows/release.yml`)가 exe를 빌드·첨부한다.
 - 사용자용 문서는 `README.md`, 개발 문서는 `DEVELOPMENT.md`.
