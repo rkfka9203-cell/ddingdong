@@ -16,6 +16,11 @@ NAME = "Ddingdong"
 
 
 def main():
+    for stream in (sys.stdout, sys.stderr):      # CI(cp1252) 콘솔에서도 한글 출력이 죽지 않게
+        try:
+            stream.reconfigure(encoding="utf-8", errors="replace")
+        except Exception:
+            pass
     # 내장 base64 아이콘 → exe 아이콘용 .ico 파일
     mod = SourceFileLoader("app_src", SRC).load_module()
     build_dir = os.path.join(HERE, "build")
